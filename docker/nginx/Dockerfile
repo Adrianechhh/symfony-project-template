@@ -1,4 +1,4 @@
-FROM nginx:1.11-alpine
+FROM nginx:alpine
 
 RUN set -x \
     && addgroup -g 82 -S www-data \
