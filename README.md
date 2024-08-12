@@ -9,25 +9,21 @@ To install and run this project follow next steps:
 
 1. Create the **.env** file:
     ``` sh
-    cp .env.example .env
+    cp .env.dist .env
     ````
    Set your own `GIT_EMAIL`,  `GIT_USER`, `APP_NAME` in the [.env](.env) file. You can also specify the project **name** and **description** at your [composer.json](composer.json).
 
 2. Build containers:
     ``` sh
-    docker-compose build
+    docker compose build
     ```
 3. Run the containers and enter the php container:
     ``` sh
-    docker-compose up -d && docker-compose exec php bash
+    docker compose up -d && docker compose exec php bash
     ```
 4. Run composer install inside the container:
    ``` sh
    composer install
-   ```
-5. Run npm install inside the container:
-   ``` sh
-   npm install
    ```
 
 ### RabbitMQ Queue
