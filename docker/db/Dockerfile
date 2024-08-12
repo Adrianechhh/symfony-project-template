@@ -1,4 +1,4 @@
-FROM mysql:8.4.2
+FROM mysql:8.3
 
 COPY mysql.cnf /etc/my.cnf.d/custom.cnf
 COPY envsubst /usr/local/bin/envsubst
