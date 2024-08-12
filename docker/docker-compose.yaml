@@ -1,6 +1,6 @@
 volumes:
   app_volume:
-    name: ${APP_NAME}-volume
+    name: ${COMPOSE_PROJECT_NAME}-volume
     driver: local
     driver_opts:
       type: nfs
@@ -9,7 +9,7 @@ volumes:
 
 services:
   db:
-    container_name: ${APP_NAME}-db
+    container_name: ${COMPOSE_PROJECT_NAME}-db
     build:
       context: db
       args:
@@ -30,7 +30,7 @@ services:
       - ./.data/db:/var/lib/mysql
 
   php:
-    container_name: ${APP_NAME}-php
+    container_name: ${COMPOSE_PROJECT_NAME}-php
     build:
       context: php-fpm
       args:
@@ -47,10 +47,10 @@ services:
       - "9000:9000"
 
   nginx:
-    container_name: ${APP_NAME}-nginx
+    container_name: ${COMPOSE_PROJECT_NAME}-nginx
     image: nginx:alpine
     environment:
-      PHP_FPM_HOST: ${APP_NAME}-php
+      PHP_FPM_HOST: ${COMPOSE_PROJECT_NAME}-php
       CORS_PROXY: 'cors_proxy.conf'
     volumes:
       - app_volume:/app
@@ -60,7 +60,7 @@ services:
       - php
 
   clickhouse:
-    container_name: ${APP_NAME}-clickhouse
+    container_name: ${COMPOSE_PROJECT_NAME}-clickhouse
     image: clickhouse/clickhouse-server:24.7.3.42
     restart: always
     volumes:
@@ -77,7 +77,7 @@ services:
 
   rabbitmq:
     hostname: 'dev-rabbitmq'
-    container_name: ${APP_NAME}-rabbitmq
+    container_name: ${COMPOSE_PROJECT_NAME}-rabbitmq
     build:
       context: ./..
       dockerfile: docker/rabbitmq/Dockerfile
@@ -91,7 +91,7 @@ services:
       - "5672:5672"
       - "15672:15672"
   redis:
-    container_name: ${APP_NAME}-redis
+    container_name: ${COMPOSE_PROJECT_NAME}-redis
     image: redis
     volumes:
       - ./.data/redis/data:/data
