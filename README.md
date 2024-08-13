@@ -1,7 +1,7 @@
 # Symfony template project
 
-This template project includes configured and ready to use **PHP 8.3**, **MySQL 8.4**, **ClickHouse 24**, **Nginx**, **Redis** and **RabbitMQ** docker containers and **Symfony 6.4**
-project files, created by ` composer create-project symfony/skeleton:"6.4.*" example-app` command. Nothing extra!
+This template project includes configured and ready to use **PHP 8.3**, **MySQL 8.3**, **ClickHouse 24**, **Nginx**, **Redis** and **RabbitMQ** docker containers and **Symfony 6.4**
+project files, created by `composer create-project symfony/skeleton:"6.4.*" example-app` command. Nothing extra!
 
 ## Installation
 
