@@ -4,8 +4,65 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a29013e9da1d3fbc02b4332fc31b4a8",
+    "content-hash": "d69321b93e56136b829f1107cb2f20cd",
     "packages": [
+        {
+            "name": "adrenalinkin/doctrine-naming-strategy",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adrenalinkin/doctrine-naming-strategy.git",
+                "reference": "34814442927c67f5b073e305c3f3fee34d821359"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adrenalinkin/doctrine-naming-strategy/zipball/34814442927c67f5b073e305c3f3fee34d821359",
+                "reference": "34814442927c67f5b073e305c3f3fee34d821359",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "^2.8 || ^3.0",
+                "php": "^8.0",
+                "symfony/deprecation-contracts": "^2.1 || ^3.0"
+            },
+            "require-dev": {
+                "doctrine/doctrine-bundle": "^2.4",
+                "phpunit/phpunit": "^8.5 || ^9.0 || ^10.0",
+                "symfony/browser-kit": "^5.4 || ^6.0 || ^7.0",
+                "symfony/framework-bundle": "^5.4 || ^6.0 || ^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Linkin\\Component\\DoctrineNamingStrategy\\": ""
+                },
+                "exclude-from-classmap": [
+                    "Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Viktor Linkin",
+                    "email": "adrenalinkin@gmail.com"
+                }
+            ],
+            "description": "Camel Case Doctrine ORM naming strategy",
+            "keywords": [
+                "camel-case",
+                "doctrine",
+                "doctrine-naming-strategy",
+                "doctrine-orm"
+            ],
+            "support": {
+                "issues": "https://github.com/adrenalinkin/doctrine-naming-strategy/issues",
+                "source": "https://github.com/adrenalinkin/doctrine-naming-strategy/tree/v3.0.0"
+            },
+            "time": "2024-03-24T19:40:25+00:00"
+        },
         {
             "name": "doctrine/cache",
             "version": "2.2.0",
@@ -7418,6 +7475,7 @@
     "prefer-lowest": false,
     "platform": {
         "php": ">=8.3",
+        "ext-amqp": "*",
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
