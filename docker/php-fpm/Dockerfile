@@ -15,9 +15,11 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh && \
 
 RUN apt-get update && apt-get install -y \
 		libfreetype6-dev \
+        librabbitmq-dev \
 		libjpeg62-turbo-dev \
 		libpng-dev \
 		libzip-dev \
+		libssh-dev \
 		git \
         nodejs  \
         nano \
@@ -29,7 +31,9 @@ RUN apt-get update && apt-get install -y \
 
 RUN pecl install -o -f redis \
 &&  rm -rf /tmp/pear \
-&&  docker-php-ext-enable redis
+&&  docker-php-ext-enable redis \
+&& pecl install amqp \
+&& docker-php-ext-enable amqp
 
 RUN npm install npm -g
 
@@ -45,7 +49,7 @@ RUN git config --global user.name $GIT_USER && \
     git config --global pull.rebase false
 
 
-COPY --from=composer:2.2.0 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.7.7 /usr/bin/composer /usr/bin/composer
 
 RUN curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 COPY bashrc /root/.bashrc

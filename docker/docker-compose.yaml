@@ -21,7 +21,7 @@ services:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_HOST: ${DB_HOST}
       MYSQL_START_TIMEOUT: 900
     ports:
       - "3306:3306"
