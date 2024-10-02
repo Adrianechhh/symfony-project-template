@@ -59,6 +59,8 @@ services:
       - ./nginx/configs:/etc/nginx/includes
     depends_on:
       - php
+    ports:
+      - "80:80"
 
   clickhouse:
     container_name: ${COMPOSE_PROJECT_NAME}-clickhouse

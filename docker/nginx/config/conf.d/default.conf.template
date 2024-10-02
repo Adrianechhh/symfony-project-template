@@ -8,7 +8,6 @@ server {
 
     location ~ ^/index\.php(/|$) {
         include fastcgi_params;
-        include /etc/nginx/includes/${CORS_PROXY};
 
         fastcgi_pass ${PHP_FPM_HOST}:9000;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;

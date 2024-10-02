@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y \
         nano \
         supervisor \
         p7zip-full \
-        && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
 	&& docker-php-ext-configure gd --with-freetype --with-jpeg \
 	&& docker-php-ext-install -j$(nproc) gd
 
