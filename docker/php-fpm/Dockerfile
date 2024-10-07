@@ -37,7 +37,7 @@ RUN pecl install -o -f redis \
 
 RUN npm install npm -g
 
-RUN docker-php-ext-install pdo_mysql pdo zip sockets pcntl
+RUN docker-php-ext-install pdo_mysql pdo zip sockets pcntl sysvmsg sysvsem sysvshm
 
 RUN cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
