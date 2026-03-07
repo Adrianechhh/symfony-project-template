@@ -6,6 +6,16 @@
    or add <skip_check_for_incorrect_settings>1</skip_check_for_incorrect_settings> here.
 -->
 <clickhouse>
+    <user_directories>
+        <users_xml>
+            <!-- Use an absolute path -->
+            <path>/etc/clickhouse-server/users.xml</path>
+        </users_xml>
+        <!-- You might also have a local_directory for SQL-created users -->
+        <local_directory>
+            <path>/var/lib/clickhouse/access/</path>
+        </local_directory>
+    </user_directories>
     <logger>
         <!-- Possible levels: https://github.com/pocoproject/poco/blob/poco-1.9.4-release/Foundation/include/Poco/Logger.h#L105 -->
         <level>trace</level>

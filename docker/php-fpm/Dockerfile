@@ -1,4 +1,4 @@
-FROM php:8.3-fpm
+FROM php:8.5-fpm
 
 ARG GIT_USER
 ARG GIT_EMAIL
@@ -49,10 +49,8 @@ RUN git config --global user.name $GIT_USER && \
     git config --global pull.rebase false
 
 
-COPY --from=composer:2.8.9 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.9.4 /usr/bin/composer /usr/bin/composer
 
-RUN curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
-COPY bashrc /root/.bashrc
 COPY run.sh /tmp/
 
 WORKDIR /app

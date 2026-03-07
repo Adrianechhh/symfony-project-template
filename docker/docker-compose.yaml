@@ -1,12 +1,3 @@
-volumes:
-  app_volume:
-    name: ${COMPOSE_PROJECT_NAME}-volume
-    driver: local
-    driver_opts:
-      type: nfs
-      o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3,wsize=32768,rsize=32768
-      device: ":${PWD}"
-
 services:
   db:
     container_name: ${COMPOSE_PROJECT_NAME}-db
@@ -42,7 +33,7 @@ services:
     environment:
       - APACHE_RUN_USER=www-data
     volumes:
-      - app_volume:/app
+      - ./..:/app
       - ~/.ssh/id_rsa:/root/.ssh/id_rsa:ro
     ports:
       - "9000:9000"
@@ -54,7 +45,7 @@ services:
       PHP_FPM_HOST: ${COMPOSE_PROJECT_NAME}-php
       CORS_PROXY: 'cors_proxy.conf'
     volumes:
-      - app_volume:/app
+      - ./..:/app
       - ./nginx/config/conf.d:/etc/nginx/templates
       - ./nginx/configs:/etc/nginx/includes
     depends_on:
